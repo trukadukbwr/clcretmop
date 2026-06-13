@@ -415,6 +415,7 @@ function clcret:PLAYER_TALENT_UPDATE()
 		self.CheckQueue = self.CheckQueueRet
 		self:CLCRETEnable()
 	end
+	self:UpdateShowMethod()
 end
 -- ---------------------------------------------------------------------------------------------------------------------
 
@@ -969,6 +970,7 @@ function clcret:InitUI()
 	addonInit = true
 	self:CLCRETDisable()
 	self.frame:SetScript("OnUpdate", OnUpdate)
+	self:UpdateShowMethod()
 end
 
 -- initialize aura buttons
@@ -1168,7 +1170,6 @@ function clcret:AuraButtonUpdateICD()
 	self:RegisterCLEU()
 end
 
-
 function clcret:RegisterCLEU()
 	if icd.cleu then
 		self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
@@ -1202,5 +1203,3 @@ function clcret:COMBAT_LOG_EVENT_UNFILTERED(event, timestamp, combatEvent, hideC
 		end
 	end
 end
--- ---------------------------------------------------------------------------------------------------------------------
-
